@@ -5,8 +5,8 @@ def norm_diff(a, b, lo, hi):
     a = np.clip(a, lo, hi)
     b = np.clip(b, lo, hi)
 
-    rescaled_a = (a - lo) / ( hi - lo)
-    rescaled_b = (b - lo) / ( hi - lo)
+    def rescale(x):
+        return  (x - lo) / (hi - lo)
 
     
-    return np.abs(rescaled_a - rescaled_b)
+    return np.abs(rescale(a) - rescale(b))
